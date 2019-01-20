@@ -1,11 +1,8 @@
 package java2.shoppinglist.services.shoppinglists.get;
 
-import java2.shoppinglist.database.ShoppingListRepository;
+import java2.shoppinglist.repositories.ShoppingListRepository;
 import java2.shoppinglist.domains.ShoppingList;
 import java2.shoppinglist.services.ShoppingListError;
-import java2.shoppinglist.services.shoppinglists.get.GetShoppingListRequest;
-import java2.shoppinglist.services.shoppinglists.get.GetShoppingListResponse;
-import java2.shoppinglist.services.shoppinglists.get.GetShoppingListValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

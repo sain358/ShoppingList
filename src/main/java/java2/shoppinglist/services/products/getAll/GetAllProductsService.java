@@ -1,6 +1,6 @@
 package java2.shoppinglist.services.products.getAll;
 
-import java2.shoppinglist.database.ProductRepository;
+import java2.shoppinglist.repositories.ProductRepository;
 import java2.shoppinglist.domains.Product;
 import java2.shoppinglist.services.ShoppingListError;
 import java2.shoppinglist.services.products.getAll.validation.GetAllProductsValidator;

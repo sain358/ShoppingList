@@ -1,4 +1,4 @@
-package java2.shoppinglist.database;
+package java2.shoppinglist.repositories;
 
 
 import java2.shoppinglist.domains.ShoppingList;

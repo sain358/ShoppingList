@@ -1,6 +1,5 @@
-package java2.shoppinglist.database;
+package java2.shoppinglist.repositories;
 
-import java2.shoppinglist.database.ShoppingListRepository;
 import java2.shoppinglist.domains.ShoppingList;
 import java2.shoppinglist.domains.User;
 import org.hibernate.SessionFactory;

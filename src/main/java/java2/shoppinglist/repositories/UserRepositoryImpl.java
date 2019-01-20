@@ -1,13 +1,11 @@
-package java2.shoppinglist.database;
+package java2.shoppinglist.repositories;
 
-import java2.shoppinglist.database.UserRepository;
 import java2.shoppinglist.domains.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Component

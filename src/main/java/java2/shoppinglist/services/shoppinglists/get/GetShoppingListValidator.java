@@ -1,18 +1,15 @@
 package java2.shoppinglist.services.shoppinglists.get;
 
-import java2.shoppinglist.database.ShoppingListRepository;
+import java2.shoppinglist.repositories.ShoppingListRepository;
 import java2.shoppinglist.domains.ShoppingList;
 import java2.shoppinglist.domains.User;
 import java2.shoppinglist.services.ShoppingListError;
-import java2.shoppinglist.services.shoppinglists.get.GetShoppingListRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Component
 public class GetShoppingListValidator {

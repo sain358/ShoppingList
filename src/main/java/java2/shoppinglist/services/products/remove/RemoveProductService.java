@@ -1,10 +1,8 @@
 package java2.shoppinglist.services.products.remove;
 
-import java2.shoppinglist.database.ProductRepository;
+import java2.shoppinglist.repositories.ProductRepository;
 import java2.shoppinglist.domains.Product;
 import java2.shoppinglist.services.ShoppingListError;
-import java2.shoppinglist.services.products.remove.RemoveProductRequest;
-import java2.shoppinglist.services.products.remove.RemoveProductResponse;
 import java2.shoppinglist.services.products.remove.validation.RemoveProductValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

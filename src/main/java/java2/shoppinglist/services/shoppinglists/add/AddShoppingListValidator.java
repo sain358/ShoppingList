@@ -1,10 +1,9 @@
 package java2.shoppinglist.services.shoppinglists.add;
 
-import java2.shoppinglist.database.ShoppingListRepository;
+import java2.shoppinglist.repositories.ShoppingListRepository;
 import java2.shoppinglist.domains.ShoppingList;
 import java2.shoppinglist.domains.User;
 import java2.shoppinglist.services.ShoppingListError;
-import java2.shoppinglist.services.shoppinglists.add.AddShoppingListRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
