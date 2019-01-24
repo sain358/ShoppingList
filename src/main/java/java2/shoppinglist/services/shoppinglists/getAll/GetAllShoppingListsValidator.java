@@ -24,7 +24,7 @@ public class GetAllShoppingListsValidator {
     }
 
     public Optional<ShoppingListError> validateEmptyShoppingList(User user) {
-        List<ShoppingList> shoppingLists = shoppingListRepository.findShoppingLists(user);
+        List<ShoppingList> shoppingLists = shoppingListRepository.findAllByUser(user);
         if (shoppingLists.isEmpty()) {
             ShoppingListError shoppingListError = new ShoppingListError("", "There are no Shopping Lists!");
             return Optional.of(shoppingListError);

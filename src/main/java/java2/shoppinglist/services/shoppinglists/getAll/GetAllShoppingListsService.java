@@ -21,7 +21,7 @@ public class GetAllShoppingListsService {
 
     public GetAllShoppingListsResponse execute(GetAllShoppingListsRequest request) {
 
-        List<ShoppingList> shoppingLists = shoppingListRepository.findShoppingLists(request.getUser());
+        List<ShoppingList> shoppingLists = shoppingListRepository.findAllByUser(request.getUser());
         List<ShoppingListError> shoppingListErrors = validator.validate(request);
         if (!shoppingListErrors.isEmpty()) {
             return new GetAllShoppingListsResponse(shoppingLists, shoppingListErrors);

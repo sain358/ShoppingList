@@ -17,7 +17,7 @@ public class EmptyShoppingListRule {
     private ProductRepository db;
 
     public Optional<ShoppingListError> execute(ShoppingList shoppingList) {
-        List<Product> products = db.getAllProducts(shoppingList);
+        List<Product> products = db.getAllByShoppingList(shoppingList);
         if (products.isEmpty()) {
             ShoppingListError shoppingListError = new ShoppingListError("", "Shopping list is empty!");
             return Optional.of(shoppingListError);

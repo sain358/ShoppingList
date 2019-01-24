@@ -29,7 +29,7 @@ public class RemoveShoppingListService {
 
         Optional<ShoppingList> shoppingListOptional =
                 shoppingListRepository.findByUserAndTitle(request.getUser(), request.getTitle());
-        shoppingListRepository.remove(shoppingListOptional.get());
+        shoppingListRepository.delete(shoppingListOptional.get());
         return new RemoveShoppingListResponse(shoppingListErrors);
 
     }

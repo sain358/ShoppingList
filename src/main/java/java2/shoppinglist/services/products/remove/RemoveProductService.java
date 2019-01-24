@@ -29,7 +29,7 @@ public class RemoveProductService {
         }
         Optional<Product> foundProduct = db.findByShoppingListAndTitle(
                 removeProductRequest.getShoppingList(),removeProductRequest.getProductTitle());
-        db.removeProduct(foundProduct.get());
+        db.delete(foundProduct.get());
         return new RemoveProductResponse(shoppingListErrors);
     }
 }

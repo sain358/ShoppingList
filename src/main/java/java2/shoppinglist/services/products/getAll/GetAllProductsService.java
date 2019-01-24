@@ -22,7 +22,7 @@ public class GetAllProductsService {
 
 
     public GetAllProductsResponse execute(GetAllProductsRequest request) {
-        List<Product> products = db.getAllProducts(request.getShoppingList());
+        List<Product> products = db.getAllByShoppingList(request.getShoppingList());
         List<ShoppingListError> shoppingListErrors = validator.validate(request);
         if (!shoppingListErrors.isEmpty()) {
             return new GetAllProductsResponse(products, shoppingListErrors);

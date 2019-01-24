@@ -30,7 +30,7 @@ public class AddProductService {
         product.setDescription(request.getProductDescription());
         product.setQuantity(request.getQuantity());
         product.setShoppingList(request.getShoppingList());
-        productRepository.addProduct(product);
+        productRepository.save(product);
         return new AddProductResponse(product, shoppingListErrors);
     }
 
