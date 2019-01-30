@@ -16,7 +16,7 @@ import java.util.Optional;
 public class RemoveProductService {
 
     @Autowired
-    private ProductRepository db;
+    private ProductRepository productRepository;
 
     @Autowired
     private RemoveProductValidator validator;
@@ -27,9 +27,9 @@ public class RemoveProductService {
         if (!shoppingListErrors.isEmpty()) {
             return new RemoveProductResponse(shoppingListErrors);
         }
-        Optional<Product> foundProduct = db.findByShoppingListAndTitle(
-                removeProductRequest.getShoppingList(),removeProductRequest.getProductTitle());
-        db.delete(foundProduct.get());
+        Optional<Product> foundProduct = productRepository.findByShoppingListAndTitle(
+                removeProductRequest.getShoppingList(), removeProductRequest.getProductTitle());
+        productRepository.delete(foundProduct.get());
         return new RemoveProductResponse(shoppingListErrors);
     }
 }

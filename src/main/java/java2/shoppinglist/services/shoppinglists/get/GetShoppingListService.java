@@ -31,12 +31,7 @@ public class GetShoppingListService {
         }
 
         Optional<ShoppingList> shoppingListOptional = shoppingListRepository.findByUserAndTitle(request.getUser(), request.getTitle());
-        ShoppingList shoppingList = new ShoppingList();
-        if (shoppingListOptional.isPresent()) {
-            shoppingList = shoppingListOptional.get();
-        }
-
-        response.setShoppingList(shoppingList);
+        response.setShoppingList(shoppingListOptional.get());
         return response;
 
     }

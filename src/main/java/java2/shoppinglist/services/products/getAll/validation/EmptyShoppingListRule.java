@@ -14,16 +14,15 @@ import java.util.Optional;
 public class EmptyShoppingListRule {
 
     @Autowired
-    private ProductRepository db;
+    private ProductRepository productRepository;
 
     public Optional<ShoppingListError> execute(ShoppingList shoppingList) {
-        List<Product> products = db.getAllByShoppingList(shoppingList);
+        List<Product> products = productRepository.getAllByShoppingList(shoppingList);
         if (products.isEmpty()) {
             ShoppingListError shoppingListError = new ShoppingListError("", "Shopping list is empty!");
             return Optional.of(shoppingListError);
         }
         return Optional.empty();
     }
-
 
 }

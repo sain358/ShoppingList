@@ -23,11 +23,7 @@ public class GetAllShoppingListsService {
 
         List<ShoppingList> shoppingLists = shoppingListRepository.findAllByUser(request.getUser());
         List<ShoppingListError> shoppingListErrors = validator.validate(request);
-        if (!shoppingListErrors.isEmpty()) {
-            return new GetAllShoppingListsResponse(shoppingLists, shoppingListErrors);
-        }
         return new GetAllShoppingListsResponse(shoppingLists, shoppingListErrors);
-
     }
 
 }

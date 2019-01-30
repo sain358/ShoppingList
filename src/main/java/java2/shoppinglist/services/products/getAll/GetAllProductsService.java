@@ -15,19 +15,14 @@ import java.util.List;
 public class GetAllProductsService {
 
     @Autowired
-    private ProductRepository db;
+    private ProductRepository productRepository;
 
     @Autowired
     private GetAllProductsValidator validator;
 
-
     public GetAllProductsResponse execute(GetAllProductsRequest request) {
-        List<Product> products = db.getAllByShoppingList(request.getShoppingList());
+        List<Product> products = productRepository.getAllByShoppingList(request.getShoppingList());
         List<ShoppingListError> shoppingListErrors = validator.validate(request);
-        if (!shoppingListErrors.isEmpty()) {
-            return new GetAllProductsResponse(products, shoppingListErrors);
-        }
         return new GetAllProductsResponse(products, shoppingListErrors);
-
     }
 }

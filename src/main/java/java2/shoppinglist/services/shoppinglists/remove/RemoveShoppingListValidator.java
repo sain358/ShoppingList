@@ -30,7 +30,6 @@ public class RemoveShoppingListValidator {
             return Optional.of(shoppingListError);
         }
         return Optional.empty();
-
     }
 
 }

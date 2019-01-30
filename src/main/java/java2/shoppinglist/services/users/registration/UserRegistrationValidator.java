@@ -21,9 +21,9 @@ public class UserRegistrationValidator {
     public List<ShoppingListError> validate(UserRegistrationRequest request) {
         List<ShoppingListError> errors = new ArrayList<>();
         validateLogin(request.getLogin()).ifPresent(errors::add);
-        validateDuplicateLogin(request.getLogin()).ifPresent(errors::add);
         validatePassword(request.getPassword()).ifPresent(errors::add);
         validateRepeatedPassword(request.getPassword(), request.getRepeatedPassword()).ifPresent(errors::add);
+        validateDuplicateLogin(request.getLogin()).ifPresent(errors::add);
         return errors;
     }
 
@@ -34,7 +34,6 @@ public class UserRegistrationValidator {
             return Optional.of(new ShoppingListError("login", "Empty login not allowed!"));
         }
         return Optional.empty();
-
     }
 
     private Optional<ShoppingListError> validatePassword(String password) {
@@ -44,23 +43,19 @@ public class UserRegistrationValidator {
             return Optional.of(new ShoppingListError("password", "Empty password not allowed!"));
         }
         return Optional.empty();
-
     }
 
     private Optional<ShoppingListError> validateRepeatedPassword(String password, String repeatedPassword) {
-        if (!password.equals(repeatedPassword)) {
+        if (!validatePassword(password).isPresent() && !password.equals(repeatedPassword)) {
             return Optional.of(new ShoppingListError("repeatedPassword", "Incorrect repeated password!"));
         }
         return Optional.empty();
-
     }
 
     private Optional<ShoppingListError> validateDuplicateLogin(String login) {
-        if (login != null) {
-            Optional<User> user = userRepository.findByLogin(login);
-            if (user.isPresent()) {
-                return Optional.of(new ShoppingListError("login", "This user already exists!"));
-            }
+        Optional<User> user = userRepository.findByLogin(login);
+        if (user.isPresent()) {
+            return Optional.of(new ShoppingListError("login", "This user already exists!"));
         }
         return Optional.empty();
     }
