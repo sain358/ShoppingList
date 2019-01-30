@@ -15,6 +15,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping(value = "/users")
 public class UserController {
 
     @Autowired
@@ -23,7 +24,7 @@ public class UserController {
     @Autowired
     private GetUserService getUserService;
 
-    @PostMapping("/user/register")
+    @PostMapping
     public ResponseEntity createUser(@RequestBody UserDTO userDTO) {
 
         UserRegistrationRequest request = new UserRegistrationRequest(
@@ -37,8 +38,7 @@ public class UserController {
         return new ResponseEntity<>(userDTO, HttpStatus.CREATED);
     }
 
-    //@ResponseBody
-    @RequestMapping(value = "/user/login", method = RequestMethod.POST/*, consumes = "application/json", produces = "application/json"*/)
+    @PostMapping(value = "/login")
     public ResponseEntity getUser(@RequestBody UserDTO userDTO) {
 
         GetUserRequest request = new GetUserRequest(userDTO.getLogin(), userDTO.getPassword());
@@ -51,9 +51,4 @@ public class UserController {
         return ResponseEntity.ok(userDTO);
     }
 
-    @GetMapping(value = "/view")
-    public String printTest(ModelMap model) {
-        model.addAttribute("message", "You see '.jpa' page!");
-        return "noXml";
-    }
 }

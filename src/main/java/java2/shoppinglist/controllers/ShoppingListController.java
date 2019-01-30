@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/shoppingList")
+@RequestMapping(value = "/shoppingLists")
 public class ShoppingListController {
 
     @Autowired
@@ -42,7 +43,7 @@ public class ShoppingListController {
     private GetAllShoppingListsService getAllShoppingListsService;
 
 
-    @PostMapping(value = "/add")
+    @PostMapping
     public ResponseEntity addShoppingList(@RequestBody ShoppingListDTO shoppingListDTO) {
 
         AddShoppingListRequest request = new AddShoppingListRequest(
@@ -56,7 +57,7 @@ public class ShoppingListController {
         return new ResponseEntity<>(shoppingListDTO, HttpStatus.CREATED);
     }
 
-    @PostMapping(value = "/remove")
+    @DeleteMapping
     public ResponseEntity removeShoppingList(@RequestBody ShoppingListDTO shoppingListDTO) {
 
         RemoveShoppingListRequest request = new RemoveShoppingListRequest(
